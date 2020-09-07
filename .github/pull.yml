@@ -1,0 +1,7 @@
+version: "1"
+rules:
+- base: develop
+  upstream: boostorg:ratio
+  mergeMethod: rebase
+  conflictReviewers:
+  - zaucy
