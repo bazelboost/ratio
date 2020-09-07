@@ -1,0 +1,25 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+_public_hdrs = [
+    "include/boost/*.hpp",
+    "include/boost/ratio/*.hpp",
+    "include/boost/ratio/mpl/*.hpp",
+]
+
+cc_library(
+    name = "ratio_internal",
+    hdrs = glob(["include/boost/**/*.hpp"], exclude = _public_hdrs),
+)
+
+cc_library(
+    name = "ratio",
+    visibility = ["//visibility:public"],
+    includes = ["include"],
+    hdrs = glob(_public_hdrs),
+    deps = [
+        ":ratio_internal",
+        "@boost//type_traits",
+        "@boost//core",
+        "@boost//integer",
+    ],
+)
