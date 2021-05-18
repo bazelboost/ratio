@@ -18,8 +18,8 @@ cc_library(
     hdrs = glob(_public_hdrs),
     deps = [
         ":ratio_internal",
-        "@boost//type_traits",
-        "@boost//core",
-        "@boost//integer",
+        "@boost//libs/type_traits",
+        "@boost//libs/core",
+        "@boost//libs/integer",
     ],
 )
